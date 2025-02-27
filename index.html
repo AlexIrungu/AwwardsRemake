@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDE - Building Digital Brands Differently</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 10vh;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: "Neue Haas Grotesk Text Pro", "Arial", sans-serif;
+            text-transform: uppercase;
+            padding: 0 2rem;
+            z-index: 10;
+        }
+
+        .logo {
+            padding: 0.4rem 0.8rem;
+        }
+
+        .link {
+            border: 2px solid red;
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .link:hover {
+            background-color: red;
+            color: white;
+        }
+
+        @media(max-width: 900px) {
+            .dummy-info{
+                display: none
+            }
+        }
+
+        .spline{
+            position: absolute;
+            top: 10vh;
+            width: 40%;
+            height: 90vh;
+            z-index: 5;
+        }
+
+        @media(max-width: 1200px) {
+            .spline {
+                width: 100%;
+                transform: scale(0.5);
+            }
+        }
+
+        .hero-section {
+            width: 100%;
+            height: 90vh;
+            background: #ffc822;
+            border-radius: 1em 1em 0 0;
+            padding: 2em;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .copy {
+            width: 100%;
+        }
+
+        .row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .h1 {
+            font-size: 12vw;
+            letter-spacing: -4px;
+            line-height: 0.9;
+        }
+
+        .row-1, .row-3 {
+            font-family: "PP Radio Grotesk", sans-serif;
+        }
+
+        .row-2 {
+            font-family: "Roxborough CF", serif;
+            font-style: italic;
+        }
+
+        .row-1 {
+            align-items: flex-start;
+        }
+
+        .row-1 .p {
+            text-transform: uppercase;
+            padding: 0 2em;
+            font-size: 24px;
+        }
+
+        .row-2 {
+            padding-left: 5em;
+            margin: 0.5em 0;
+        }
+
+        .row-3 {
+            padding-left: 4em;
+        }
+
+        .span {
+            width: 300px;
+            font-size: 14px;
+        }
+
+        @media(max-width: 900px) {
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .row-1, .row-2, .row-3 {
+                padding: 2em;
+            }
+
+            .span {
+                width: 100%;
+            }
+        }
+
+        .pre-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            z-index: 100;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "PP Radio Grotesk", sans-serif;
+            font-size: 2vw;
+        }
+
+        .content span {
+            font-family: "Roxborough CF", serif;
+            font-style: italic;
+        }
+
+        .text {
+            margin-bottom: 1em;
+        }
+
+        .loader {
+            width: 450px;
+            height: 2px;
+            background: red;
+            transform-origin: left;
+        }
+
+        @media(max-width: 900px) {
+            .loader {
+                width: 100%;
+            }
+            .content {
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">TDE</div>
+            <div class="dummy-info">27/2/2025 9:00 AM COMPTON</div>
+            <div class="link">Contact</div>
+        </div>
+
+        <div class="hero-section">
+            <div class="copy">
+                <div class="row row-1">
+                    <div class="h1">We are building</div>
+                    <div class="p">from 2025&copy;</div>
+                </div>
+                <div class="row row-2">
+                    <div></div>
+                    <div class="h1">digital brands</div>
+                    <div></div>
+                </div>
+                <div class="row row-3">
+                    <div></div>
+                    <div class="h1">differently</div>
+                    <div class="span">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIMPLE WEBSITES AND SIMPLE BRANDING STAY IN THE PAST.
+                        WE ARE TACKLING BUSINESS PROBLEMS.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="spline">
+        <iframe
+        src="animated-element.html"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        ></iframe>
+    </div>
+    
+    <div class="pre-loader">
+        <div class="content">
+            <div class="text">Everyone uses a <span>preloader</span> sorry :(</div>
+            <div class="loader"></div>
+        </div>
+    </div>
+    
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Optional GSAP plugins depending on your needs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <script>
+        // GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Timeline for preloader
+        const preloaderTL = gsap.timeline();
+        
+        // Animate the loader bar first
+        preloaderTL.fromTo(".loader", {
+            scaleX: 0
+        }, {
+            duration: 1.5,
+            scaleX: 1,
+            ease: "power2.inOut"
+        });
+        
+        // Then fade out the preloader
+        preloaderTL.to(".pre-loader", {
+            duration: 0.8,
+            autoAlpha: 0,
+            ease: "power2.inOut"
+        });
+
+        // Main timeline that starts after preloader
+        const mainTL = gsap.timeline({
+            delay: 2.5 // Start after preloader animation completes
+        });
+
+        // Navbar animation
+        mainTL.from(".navbar", {
+            duration: 1,
+            y: "-100%",
+            ease: "power3.out"
+        });
+
+        // Hero section animation with staggered text reveal
+        mainTL.from(".hero-section", {
+            duration: 1.2,
+            y: "5%",
+            opacity: 0,
+            ease: "power3.out"
+        }, "-=0.5");
+
+        // Staggered text animations
+        mainTL.from(".row-1 .h1", {
+            duration: 0.8,
+            opacity: 0,
+            y: 50,
+            ease: "back.out(1.7)"
+        }, "-=0.5");
+        
+        mainTL.from(".row-1 .p", {
+            duration: 0.6,
+            opacity: 0,
+            x: -30,
+            ease: "power2.out"
+        }, "-=0.3");
+        
+        mainTL.from(".row-2 .h1", {
+            duration: 0.8,
+            opacity: 0,
+            y: 50,
+            ease: "back.out(1.7)"
+        }, "-=0.4");
+        
+        mainTL.from(".row-3 .h1", {
+            duration: 0.8,
+            opacity: 0,
+            y: 50,
+            ease: "back.out(1.7)"
+        }, "-=0.4");
+        
+        mainTL.from(".row-3 .span", {
+            duration: 0.6,
+            opacity: 0,
+            x: 30,
+            ease: "power2.out"
+        }, "-=0.3");
+
+        // Reveal spline
+        mainTL.from(".spline", {
+            duration: 1.2,
+            opacity: 0,
+            x: "20%",
+            ease: "power3.out"
+        }, "-=0.7");
+
+        // Add subtle hover effects
+        gsap.to(".link", {
+            duration: 0.3,
+            scale: 1.05,
+            paused: true,
+            ease: "power2.out"
+        });
+        
+        document.querySelector(".link").addEventListener("mouseenter", function() {
+            gsap.to(this, {
+                duration: 0.3,
+                scale: 1.05,
+                ease: "power2.out"
+            });
+        });
+        
+        document.querySelector(".link").addEventListener("mouseleave", function() {
+            gsap.to(this, {
+                duration: 0.3,
+                scale: 1,
+                ease: "power2.out"
+            });
+        });
+
+        // Enable scroll-based animations (modify body overflow for scrolling)
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.querySelector("html").style.overflowY = "auto";
+                document.querySelector("body").style.overflowY = "auto";
+                document.querySelector("body").style.height = "auto";
+                
+                // Parallax effect on copy
+                gsap.to(".copy", {
+                    scrollTrigger: {
+                        trigger: ".hero-section",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 1
+                    },
+                    y: "-20%",
+                    ease: "none"
+                });
+            }, 3000); // Wait for preloader and initial animations
+        });
+    </script>
+</body>
+</html>

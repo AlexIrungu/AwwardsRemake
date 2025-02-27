@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Element</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff3e00, #ff8700);
+            transform-origin: center;
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 50px;
+            opacity: 0.8;
+        }
+        
+        .circle-2 {
+            width: 160px;
+            height: 160px;
+            top: 70px;
+            left: 70px;
+            background: linear-gradient(135deg, #ff006a, #ff4d00);
+            opacity: 0.9;
+        }
+        
+        .circle-3 {
+            width: 120px;
+            height: 120px;
+            top: 90px;
+            left: 90px;
+            background: linear-gradient(225deg, #ff0099, #ff3e00);
+            opacity: 1;
+        }
+        
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 32px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 10;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            background-color: rgba(255, 69, 0, 0.3);
+            border-radius: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="text">TDE</div>
+    </div>
+    
+    <script>
+        // Create particles
+        function createParticles() {
+            const container = document.querySelector('.logo-container');
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const x = Math.random() * 300;
+                const y = Math.random() * 300;
+                
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                particle.style.width = `${Math.random() * 6 + 2}px`;
+                particle.style.height = particle.style.width;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Create floating shapes
+        function createFloatingShapes() {
+            const container = document.querySelector('.logo-container');
+            
+            for (let i = 0; i < 6; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('floating-shape');
+                
+                // Random position
+                const x = Math.random() * 250;
+                const y = Math.random() * 250;
+                
+                shape.style.left = `${x}px`;
+                shape.style.top = `${y}px`;
+                shape.style.width = `${Math.random() * 60 + 20}px`;
+                shape.style.height = `${Math.random() * 60 + 20}px`;
+                shape.style.opacity = Math.random() * 0.3 + 0.1;
+                shape.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                container.appendChild(shape);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createFloatingShapes();
+            
+            // Animate circles
+            gsap.to('.circle-1', {
+                rotation: 360,
+                duration: 20,
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            gsap.to('.circle-2', {
+                rotation: -360,
+                duration: 15,
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            gsap.to('.circle-3', {
+                rotation: 360,
+                duration: 10,
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            // Pulse animation for the text
+            gsap.to('.text', {
+                scale: 1.1,
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'power1.inOut'
+            });
+            
+            // Animate particles
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const duration = Math.random() * 5 + 3;
+                
+                gsap.to(particle, {
+                    x: Math.random() * 100 - 50,
+                    y: Math.random() * 100 - 50,
+                    opacity: Math.random() * 0.5 + 0.2,
+                    duration: duration,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            });
+            
+            // Animate floating shapes
+            const shapes = document.querySelectorAll('.floating-shape');
+            shapes.forEach(shape => {
+                const duration = Math.random() * 8 + 5;
+                
+                gsap.to(shape, {
+                    x: Math.random() * 80 - 40,
+                    y: Math.random() * 80 - 40,
+                    rotation: Math.random() * 180 - 90,
+                    duration: duration,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
